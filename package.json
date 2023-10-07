@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "prepare": "husky install",
+    "postinstall": "husky install"
   },
   "dependencies": {
     "@apollo/client": "^3.8.4",
@@ -40,11 +42,6 @@
     "prettier": "^3.0.3",
     "prettier-eslint": "^15.0.1",
     "typescript": "^5"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
   },
   "lint-staged": {
     "src/**/*.{ts,tsx}": [

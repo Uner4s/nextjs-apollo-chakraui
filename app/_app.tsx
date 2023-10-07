@@ -1,10 +1,10 @@
+import '@app/styles/globals.css'
+
+import { ApolloProvider } from '@apollo/client'
 import { type AppType } from 'next/dist/shared/lib/utils'
 
 import { ChakraProviders } from '../chakra/providers'
-import { ApolloProvider } from '@apollo/client'
 import { client as ApolloClient } from '../services/ApolloClient'
-
-import '@app/styles/globals.css'
 
 const MyApp: AppType = ({ Component, pageProps }) => {
   return (
