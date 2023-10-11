@@ -1,9 +1,26 @@
-import { Box } from '@chakra-ui/react'
+'use client'
+
+import { Box, Button } from '@chakra-ui/react'
+import { useAtom, useSetAtom } from 'jotai'
+
+import BottomBox from '@/components/BottomBox'
+import { catAtom, persistCatAtom } from '@/lib/jotai/atom'
 
 export default function Home() {
-  console.log('changes ')
+  const [cat, setCat] = useAtom(catAtom)
+  const setPersistCat = useSetAtom(persistCatAtom)
 
-  const element = [] // t3
+  function changeAge() {
+    setCat(cat => ({ ...cat, age: cat.age + 1 }))
 
-  return <Box>Esto es una Página Home</Box>
+    setPersistCat(cat => ({ ...cat, age: cat.age + 4 }))
+  }
+
+  return (
+    <Box>
+      <Box>Esto es una Página Home</Box>
+      <Button onClick={changeAge}>Mostrar Datos</Button>
+      <BottomBox />
+    </Box>
+  )
 }
